@@ -118,6 +118,7 @@ var Boid = Particle.extend({
 		// EXAMPLE_FOOD: This example force searches for food directly ahead, and,
 		// if found, exerts a lunging force forward
 		// Can you think of a better method?
+<<<<<<< HEAD
 		
 		if(this.flock.dna.values[16] > .5)
 		{
@@ -172,6 +173,20 @@ var Boid = Particle.extend({
 		}
 
 		
+=======
+
+		this.forces[6].setTo(this.v);
+		this.forces[6].normalize();
+		var sampleSpot = new Vector();
+		var total = 0;
+		for (var i = 0; i < 20; i++) {
+
+			sampleSpot.setToAddMultiple(this, 1, this.v, i * .012 + .005);
+			var amt = environment.getFoodAt(sampleSpot);
+			total += amt;
+		}
+		this.forces[6].mult(200 * total);
+>>>>>>> e05a7516d907c20916fd672f24db0d5fa0e6b901
 
 		// EXAMPLE_MOUSE: Try making the boids CHASE or RUN FROM your mouse movement
 		// Try controlling fearfulness/curiosity about 
@@ -231,6 +246,7 @@ var Boid = Particle.extend({
 		var wx = (1 + .5 * Math.sin(-this.flapCycle * Math.PI * 2)) * this.wingWidth;
 		var wy = (1 + .2 * Math.cos(-this.flapCycle * Math.PI * 2)) * this.wingLength;
 
+<<<<<<< HEAD
 		// example of how to change aesthetics with extra variables
 		// this.flock.dna.values[6] = a third hue
 		// this.flock.dna.values[7] = feather length
@@ -264,6 +280,8 @@ var Boid = Particle.extend({
 		g.endShape()
 		*/
 		
+=======
+>>>>>>> e05a7516d907c20916fd672f24db0d5fa0e6b901
 		// Draw the body
 		g.noStroke();
 		g.fill(this.flock.hue0, 1, .9);
@@ -274,7 +292,10 @@ var Boid = Particle.extend({
 		g.vertex(-wy, -wx);
 		g.endShape();
 
+<<<<<<< HEAD
 		// Draw the center
+=======
+>>>>>>> e05a7516d907c20916fd672f24db0d5fa0e6b901
 		g.fill(this.flock.hue1, 1.5 - 1.5 * this.flock.centerPastel, .25 + 1.5 * this.flock.centerPastel);
 		g.beginShape(g.TRIANGLE_FAN);
 		g.vertex(this.length * .4, 0);
@@ -282,7 +303,10 @@ var Boid = Particle.extend({
 		g.vertex(-this.length * .6, 0);
 		g.vertex(-wy * .6, -wx * .4);
 		g.endShape();
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> e05a7516d907c20916fd672f24db0d5fa0e6b901
 	},
 });
